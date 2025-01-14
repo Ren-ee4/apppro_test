@@ -10,3 +10,17 @@
 >cd apppro_test
 
 >notepad test.txt
+
+>git config --global user.email "ee33072o@nagaoka-ct.ac.jp"
+
+>git config --global user.name "Ren-ee4"
+
+>git add test.txt
+
+>git commit -m "はじめてのプッシュ"
+
+>git remote add origin https://github.com/Ren-ee4/apppro_test.git
+
+>git push
+
+>git push --set-upstream origin master
