@@ -15,12 +15,16 @@ git clone https://github.com/Ren-ee4/apppro_test.git
 
 - 今のブランチを見る
 
+'''
 git branch
-
+'''
 - ブランチを作成する
 
+'''
 git branch branch branch_test
-
+'''
 - ブランチを移動
 
+'''
 git checkout branch_test
+'''
