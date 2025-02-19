@@ -29,6 +29,21 @@ def operator_click(event):
         var["operator"] = event
         var["x_val"] =  format_number()
         clear_click()
+
+def sankaku_func(event):
+    global var
+    var["x_val"] = format_number()
+    if event in ["sin"]:
+        var["result"] = math.sin(math.radians(var["x_val"]))
+    elif event in ["cos"]:
+        var["result"] = math.cos(math.radians(var["x_val"]))       
+    elif event in ["tan"]:
+        var["result"] = math.tan(math.radians(var["x_val"]))
+    format_number()
+    update_display(var["result"])
+    var["front"].clear()
+    var["back"].clear()
+    return var['x_val']
  
 def clear_click():  
     global var
@@ -51,6 +66,7 @@ def calculate_click():
 if __name__ == "__main__":
     
     layout = [[sg.Text("0.0000",key="_DISPLAY_",size=(30, 1))],
+	    [sg.Button("sin",key="sin",size=(3, 1)),sg.Button("cos",key="cos",size=(3, 1)),sg.Button("tan",key="tan",size=(3, 1)),sg.Button("C",key="C",size=(3, 1))],
             [sg.Button("7",key="7",size=(3, 1)),sg.Button("8",key="8",size=(3, 1)), sg.Button("9",key="9",size=(3, 1)), sg.Button("/",key="/",size=(3, 1))], 
             [sg.Button("4",key="4",size=(3, 1)),sg.Button("5",key="5",size=(3, 1)), sg.Button("6",key="6",size=(3, 1)), sg.Button("*",key="*",size=(3, 1))],
             [sg.Button("1",key="1",size=(3, 1)),sg.Button("2",key="2",size=(3, 1)), sg.Button("3",key="3",size=(3, 1)), sg.Button("+",key="+",size=(3, 1))],
@@ -67,6 +83,9 @@ if __name__ == "__main__":
             break
         if event in ['=',"calc"]:
             calculate_click()
+
+        if event in ["sin","cos","tan"]:
+            sankaku_func(event)
 
         if event in ["C","CE"]:
             clear_click()
